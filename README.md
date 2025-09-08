@@ -18,17 +18,19 @@ The problem is illustrated below, where the red dot indicates the position on th
 
 Your task is to solve this problem using gradient descent.
 >> **Recap**:
-Starting from position $x_0 = 5 $, we use the gradient of the parabola to find the next position on the x-axis that should be closer to the optimal position, where f takes on its minimum value. 
-Specifically:
-**a.** Take the last position $x_{n-1}$ in **pos_list**.
-**b.** Calculate the derivative of $f$ at $x_{n-1}$.
-    - This gives us the direction of the steepest ascent at the last position $x_{n-1}$.
-    - Since our goal is to reach the minimum, we want to go into the opposite direction.
-**c.** The step-size-parameter ($\epsilon$) tells us, how big of a step we take. This value is multiplied with the derivative calculated in **b.**
-**d.** Substract the value you get in **c.** from the last position $x_{n-1}$ to get the new position $x_n$
-All these steps together define one iteration of the gradient descent algorithm:
-$$x_n = x_{n-1} - \epsilon\frac{df(x)}{dx}$$
-This step is repeated, until a stopping criterion is met. In this task, we decide to set a fixed number of iterations we do until we stop.
+Starting from position $x_0 = 5 $, we use the gradient of the parabola to find the next position on the x-axis that should be closer to the optimal position, where f takes on its minimum value.  
+>> Specifically:  
+>> **a.** Take the last position $x_{n-1}$ in **pos_list**.  
+>> **b.** Calculate the derivative of $f$ at $x_{n-1}$.  
+>>     - This gives us the direction of the steepest ascent at the last position $x_{n-1}$.  
+>>     - Since our goal is to reach the minimum, we want to go into the opposite direction.  
+>> **c.** The step-size-parameter ($\epsilon$) tells us, how big of a step we take. This value is multiplied with the derivative calculated in **b.**  
+>> **d.** Substract the value you get in **c.** from the last position $x_{n-1}$ to get the new position $x_n$  
+>> All these steps together define one iteration of the gradient descent algorithm:  
+>> $$
+x_n = x_{n-1} - \epsilon\frac{df(x)}{dx}
+>> $$  
+>> This step is repeated, until a stopping criterion is met. In this task, we decide to set a fixed number of iterations we do until we stop.  
 
 1. Compute the derivative of the parabola in the method `derivative_parabola`.
 
@@ -47,8 +49,10 @@ We mark vectors by writing them in bold font ($\mathbf{x}$) and $\cdot$ denotes 
 $$\min_{\mathbf{x}} \mathbf{x} \cdot \mathbf{x} = (x_0, x_1) \cdot (x_0, x_1) = x_0x_0 + x_1x_1,  \text{   with   } \mathbf{x_0} = (2.9, -2.9) .$$
 
 The paraboloid is already implemented in `src/optimize_2d.py`. 
-Once more the problem is illustrated below:
+Once more the problem is illustrated below:  
+
 ![paraboloid_task](./figures/paraboloid_task.png)
+
 The horizontal axis represents the first entry $x_0$ of $\mathbf{x}$ and the vertical axis the second entry $x_1$. The red dot indicates the starting position. The function values are now represented as color values: The darker the color, the lower the corresponding function value. You can think of the illustration as looking at the 2-dimensional paraoboloid from above. 
 
 Your task is to solve this problem using two-dimensional gradient descent.
@@ -63,7 +67,7 @@ Go to the `main`-function.
 3. Implement the gradient-descent algorithm as described in the lecture.
 
 
-### ⊙  Task 3: Bumpy Paraboloid
+### ✪ Optional Task 3: Bumpy Paraboloid
 Additionally we consider a bumpy paraboloid:
 
 $$\min_{\mathbf{x}} \mathbf{x} \cdot \mathbf{x} + \cos(2  \pi x_0) + \sin(2 \pi x_1 ), \text{   with   } \mathbf{x_0} = (2.9, -2.9) .$$
@@ -71,6 +75,7 @@ $$\min_{\mathbf{x}} \mathbf{x} \cdot \mathbf{x} + \cos(2  \pi x_0) + \sin(2 \pi 
 The addtional sine and cosine terms will require momentum for convergence in order to overcome the bumps and not get stuck in a sub-optimal, local minimum.
 The bumpy paraboloid is already implemented in `src/optimize_2d_momentum_bumpy.py`. 
 Once more the problem is illustrated below:
+
 ![bumpy_paraboloid_task](./figures/bumpy_paraboloid_task.png)
 
 Your task is to solve this problem using two-dimensional gradient descent with momentum.
@@ -88,7 +93,7 @@ Go to the `main`-function.
 
 3. Implement the gradient-descent algorithm **with momentum** as described in the lecture.
 
-### ⊙  Task 4: Automatic Differentiation
+### ✪ Optional Task 4: Automatic Differentiation
 Finally, to explore the automatic differentiation functionality we consider the problem:
 
 $$\min_{\mathbf{x}} \mathbf{x} \cdot \mathbf{x} + \cos(2 \pi x_0 ) + \sin(2 \pi x_1)  + 0.5 \cdot \text{relu}(x_0) + 10 \cdot \tanh( \|\mathbf{x} \| )  \text{   with   } \mathbf{x_0} = (2.9, -2.9) .$$
